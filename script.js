@@ -2,7 +2,7 @@ const api1Url = "https://dummyjson.com/posts";
 const api2Url = "https://dummyjson.com/products";
 const api3Url = "https://dummyjson.com/todos";
 
-function fetchFromApi1(apiUrl, delay) {
+function fetchFromApi1(apiUrl) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             fetch(apiUrl) 
@@ -14,11 +14,11 @@ function fetchFromApi1(apiUrl, delay) {
                 .catch(error => {
                     reject(error);
                 });
-        }, delay);
+        }, 1000);
     });
 }
 
-function fetchFromApi2(apiUrl, delay) {
+function fetchFromApi2(apiUrl) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             fetch(apiUrl)
@@ -30,11 +30,11 @@ function fetchFromApi2(apiUrl, delay) {
                 .catch(error => {
                     reject(error);
                 });
-        }, delay);
+        },2000);
     });
 }
 
-function fetchFromApi3(apiUrl, delay) {
+function fetchFromApi3(apiUrl) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             fetch(apiUrl)
@@ -46,16 +46,16 @@ function fetchFromApi3(apiUrl, delay) {
                 .catch(error => {
                     reject(error);
                 });
-        }, delay);
+        },3000);
     });
 }
 
 
 function fetchApi() {
     const tableBody = document.querySelector("#data-table tbody");
-    const api1Promise = fetchFromApi1(api1Url, 1000);
-    const api2Promise = api1Promise.then(() => fetchFromApi2(api2Url, 2000));
-    const api3Promise = api2Promise.then(() => fetchFromApi3(api3Url, 3000));
+    const api1Promise = fetchFromApi1(api1Url);
+    const api2Promise = api1Promise.then(() => fetchFromApi2(api2Url));
+    const api3Promise = api2Promise.then(() => fetchFromApi3(api3Url));
 
     api1Promise
         .then(api1Data => {
