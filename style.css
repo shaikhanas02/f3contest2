@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+#fetchDataButton {
+    display: block;
+    padding: 7px 15px;
+    margin: 10px auto;
+    background: black;
+    color: yellow ;
+}
+.container {
+    padding: 0 15px;
+}
+table, th, td {
+    border: 2px solid blue;
+}
+td {
+    text-align: center;
+}
+td:first-child {
+    text-align: start;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
